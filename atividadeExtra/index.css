@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #fd297b;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex; /* Usando Flexbox para alinhar os sidebars horizontalmente */
+    flex-wrap: wrap; /* Quebra para a próxima linha se o espaço não for suficiente */
+    justify-content: space-between; /* Alinhamento horizontal dos sidebars */
+}
+
+.content {
+    width: 70%;
+    padding: 10px;
+}
+
+.sidebar {
+    width: 30%;
+    padding: 10px;
+    background-color: #ff5864;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.sidebar img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+footer {
+    clear: both;
+    background-color: #fd297b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
