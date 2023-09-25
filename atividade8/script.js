@@ -1,34 +1,41 @@
 function generateRandomNumber() {
-    const randomNumber = Math.floor(Math.random() * 10);
-
-    if (randomNumber === 1 || randomNumber === 2 || randomNumber === 3) return randomNumber;
-
-    return generateRandomNumber();
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  return randomNumber;
 }
 
 function usuarioGanhou(valorUsuario, valorComputador) {
-    if (valorUsuario === 1 && valorComputador === 2) return false;
-    if (valorUsuario === 1 && valorComputador === 3) return true;
-    if (valorUsuario === 2 && valorComputador === 1) return true;
-    if (valorUsuario === 2 && valorComputador === 3) return false;
-    if (valorUsuario === 3 && valorComputador === 1) return false;
-    if (valorUsuario === 3 && valorComputador === 2) return true;
+  if (
+    (valorUsuario === 1 && valorComputador === 3) ||
+    (valorUsuario === 2 && valorComputador === 1) ||
+    (valorUsuario === 3 && valorComputador === 2)
+  ) {
+    return true;
+  }
+  return false;
 }
 
-function main() {
-    const valorUsuario = Number(window.prompt("Escolha um simbolo: \n1 - Pedra\n2 - Papel\n3 - Tesoura"))
-    const valorEhValido = [1, 2, 3].find(valor => valor === valorUsuario);
+const options = document.querySelectorAll(".option");
+const resultDisplay = document.getElementById("result");
 
-    if (!valorEhValido) {
-       return window.alert("Valor Invalido");
-    }
-
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    const userChoice = option.id;
+    const valorUsuario =
+      userChoice === "rock" ? 1 : userChoice === "paper" ? 2 : 3;
     const valorEscolhidoComputador = generateRandomNumber();
+    const result = usuarioGanhou(valorUsuario, valorEscolhidoComputador);
+    displayResult(result);
+  });
+});
 
-    if (valorEscolhidoComputador === valorUsuario) return window.alert("Empate!");
-
-    if (usuarioGanhou(valorUsuario, valorEscolhidoComputador)) return window.alert("Você ganhou!!!");
-    else return window.alert("Você perdeu!!");
+function displayResult(usuarioGanhou) {
+  if (usuarioGanhou) {
+    resultDisplay.textContent = "Você ganhou!!!";
+  } else {
+    resultDisplay.textContent = "Você perdeu!!";
+  }
+  resultDisplay.classList.add("shake");
+  setTimeout(() => {
+    resultDisplay.classList.remove("shake");
+  }, 500);
 }
-
-main()
