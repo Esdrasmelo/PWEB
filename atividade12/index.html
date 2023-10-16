@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade 12</title>
+</head>
+
+<body>
+    <script>
+        function Retangulo(base, altura) {
+            this.base = base;
+            this.altura = altura;
+
+            this.calculaArea = () => {
+                return Number(this.base) * Number(this.altura);
+
+            }
+        }
+
+        const retangulo = new Retangulo(10, 8);
+
+        alert(`Área do Retângulo: ${retangulo.calculaArea()}`);
+
+        function Conta() {
+
+            this.getNome = function () {
+                return this.nome;
+            }
+
+            this.setNome = function (nome) {
+                this.nome = nome;
+            }
+
+            this.getBanco = function () {
+                return this.banco;
+            }
+
+            this.setBanco = function (banco) {
+                this.banco = banco;
+            }
+
+            this.getNumeroConta = function () {
+                return this.numeroConta;
+            }
+
+            this.setNumeroConta = function (numeroConta) {
+                this.numeroConta = numeroConta;
+            }
+
+            this.getSaldo = function () {
+                return this.saldo;
+            }
+
+            this.setSaldo = function (saldo) {
+                this.saldo = saldo;
+            }
+
+
+        }
+
+        function Corrente() {
+
+            this.getSaldoEspecial = function () {
+                return this.saldoEspecial;
+            };
+
+            this.setSaldoEspecial = function (saldoEspecial) {
+                this.saldoEspecial = saldoEspecial;
+            };
+        }
+
+        function Poupanca() {
+
+            this.getJuros = function () {
+                return this.juros;
+            };
+
+            this.setJuros = function (juros) {
+                this.juros = juros;
+            };
+
+            this.getDataVencimento = function () {
+                return this.dataVencimento;
+            };
+
+            this.setDataVencimento = function (dataVencimento) {
+                this.dataVencimento = dataVencimento;
+            };
+        }
+
+        Corrente.prototype = new Conta();
+        Poupanca.prototype = new Conta();
+
+        objCorrente = new Corrente();
+        objPoupanca = new Poupanca();
+
+        objCorrente.setNome("Esdras");
+        objCorrente.setBanco("Nubank");
+        objCorrente.setNumeroConta("101");
+        objCorrente.setSaldo(12000);
+        objCorrente.setSaldoEspecial(22222);
+
+        objPoupanca.setNome("Motta");
+        objPoupanca.setBanco("Inter");
+        objPoupanca.setNumeroConta("202");
+        objPoupanca.setSaldo(500000);
+        objPoupanca.setJuros(12);
+        objPoupanca.setDataVencimento("01/07/2500");
+
+        alert("Dados da conta corrente:\nNome: " + objCorrente.getNome() +
+            "\nBanco: " + objCorrente.getBanco() +
+            "\nNúmero da Conta: " + objCorrente.getNumeroConta() +
+            "\nSaldo: " + objCorrente.getSaldo() +
+            "\nSaldo Especial: " + objCorrente.getSaldoEspecial());
+
+        alert("Dados da conta poupança:\nNome: " + objPoupanca.getNome() +
+            "\nBanco: " + objPoupanca.getBanco() +
+            "\nNúmero da Conta: " + objPoupanca.getNumeroConta() +
+            "\nSaldo: " + objPoupanca.getSaldo() +
+            "\nJuros: " + objPoupanca.getJuros() +
+            "\nData de vencimento: " + objPoupanca.getDataVencimento());
+    </script>
+</body>
+
+</html>
