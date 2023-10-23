@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 14</title>
+    <script>
+        function emMinusculo(){
+            document.getElementById("text").value = document.getElementById("text").value.toUpperCase();
+
+            document.forms.testForm.opcao1.checked;
+            document.forms.testForm.opcao2.checked = false;
+        }
+
+        function emMaisculo(){
+            document.getElementById("text").value = document.getElementById("text").value.toLowerCase();
+
+            document.forms.testForm.opcao1.checked = false;
+            document.forms.testForm.opcao2.checked;
+        }
+        
+
+    </script>
+</head>
+<body>
+    <form name="testForm">
+        Texto
+        <input type="text" id="text" name="text" size=40 maxlength="20">
+        <br> Maíusculas
+        <input type="checkbox" id="opcao1" name="opcao1" value="1" onClick="emMinusculo();">
+        <br> Minúsculas
+        <input type="checkbox" id="opcao2" name="opcao2" value="2" onClick="emMaisculo();">
+    </form>
+</body>
+</html>

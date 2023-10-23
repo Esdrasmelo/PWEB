@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abra a Janela</title>
+	<style>
+        h1{
+            text-align: center;
+        }
+
+		img {
+			cursor: pointer; 
+			margin: 0 auto;
+			display: block; 
+		}
+	</style>
+	<script>
+		function abrirJanela() {
+			document.getElementById("window").src = "https://thumbs.dreamstime.com/b/janela-de-desenho-animado-aberta-ilustra%C3%A7%C3%A3o-vetorial-isolada-em-fundo-branco-242112101.jpg"; 
+			document.getElementById("title").innerHTML = "A JANELA ESTÁ ABERTA"; 
+		}
+
+		function fecharJanela() {
+			document.getElementById("window").src = "https://thumbs.dreamstime.com/b/janela-vetora-com-arma%C3%A7%C3%A3o-de-vidro-e-madeira-numa-parede-tijolos-fachada-desenho-animado-fora-do-elemento-design-ilustra%C3%A7%C3%A3o-212261041.jpg"; 
+			document.getElementById("title").innerHTML = "A JANELA ESTÁ FECHADA"; 
+		}
+
+		function quebrarJanela() {
+			document.getElementById("window").src = "https://thumbs.dreamstime.com/b/janela-quebrada-com-ilustra%C3%A7%C3%A3o-do-vetor-de-vidro-rachado-desenho-animado-no-elemento-design-da-fachada-constru%C3%A7%C3%A3o-tijolos-217706323.jpg";
+			document.getElementById("title").innerHTML = "A JANELA ESTÁ QUEBRADA"; 
+			document.getElementById("window").onclick = null; 
+		}
+	</script>
+</head>
+<body>
+	<h1 id="title">Abra a Janela</h1>
+	<img src="https://thumbs.dreamstime.com/b/janela-de-desenho-animado-aberta-ilustra%C3%A7%C3%A3o-vetorial-isolada-em-fundo-branco-242112101.jpg" alt="Janela Fechada" id="window" onclick="abrirJanela()" style="width: 300px; height: 200px">
+	<script>
+		document.getElementById("window").onmouseenter = abrirJanela;
+		document.getElementById("window").onmouseleave = fecharJanela;
+	</script>
+	<script>
+		document.getElementById("window").addEventListener("click", quebrarJanela);
+	</script>
+</body>
+</html>
